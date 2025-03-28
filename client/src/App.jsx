@@ -1,27 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {Routes, Route} from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom';
+import Home from "./components/Home";
+import AllMovies from "./components/AllMovies";
+import Movie from "./components/Movie";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const movies = [
-    {title: 'Mean Girls'},
-    {title: 'Hackers'},
-    {title: 'The Grey'},
-    {title: 'Sunshine'},
-    {title: 'Ex Machina'},
-  ];
+  const navigate = useNavigate();
 
   return (
     <>
-    <div>
-      Here are your movies:
-      {movies.map((movie) => (
-        <div>{movie.title}</div>
-      )
-      )}
-    </div>
+    <Link to={`/movies`}>
+    <h1>Movie List</h1>
+    </ Link>
+    
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/movies' element={<AllMovies />} />
+      <Route path='/movie/:id' element={<Movie />} />
+    </Routes>
+
+    {/* <ButtonGroup variant='contained'>
+      <Button onClick={() => navigate('/')}>HOME</Button>
+      <Button onClick={() => navigate('/movies')}>All Movies</Button>
+      <Button onClick={() => navigate('/movie/:id')}>Movie Search</Button>
+    </ButtonGroup> */}
     </>
   )
 }
