@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-    <Link to={`/movies`}>
+    <Link to={`/`}>
     <h1>Movie List</h1>
     </ Link>
     

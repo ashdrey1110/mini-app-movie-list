@@ -13,6 +13,7 @@ export default function AllMovies() {
 
   return (
     <>
+    <h2>All Movies</h2>
     {movies.map((movie) => {
         return (
             <div key={movie.id}>
